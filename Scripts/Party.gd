@@ -1,4 +1,4 @@
-extends Node2D
+extends Status
 
 export(Array) var Players
 
