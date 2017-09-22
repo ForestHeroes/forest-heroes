@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Sprites/base_01.png" type="Texture" id=1]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 35.4786, 129.196, 35.1551, 119.166, 91.7734, 100.078, 93.7146, 111.401, 45.5081, 135.019 )
+
+[node name="Node" type="Node"]
+
+[node name="parede_1" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 64, 64 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 308.5, 357, 59.25, 145 )
+
+[node name="body" type="StaticBody2D" parent="parede_1"]
+
+editor/display_folded = true
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -64, -64 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="collision" type="CollisionPolygon2D" parent="parede_1/body"]
+
+transform/pos = Vector2( -64, -64 )
+build_mode = 0
+polygon = Vector2Array( 45.5081, 135.019, 93.7146, 111.401, 91.7734, 100.078, 35.1551, 119.166, 35.4786, 129.196 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+
