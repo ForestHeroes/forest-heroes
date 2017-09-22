@@ -1,11 +1,8 @@
-extends Node
+extends Node2D
 
-var status = preload("Status.gd").new(5,1,2,3,4)
+var status
 
 func _ready():
-	print(status.atk)
-	print(status.def)
-	print(status.atkSpeed)
-	print(status.movSpeed)
-	print(status.atkRange)
+	status = get_node("Attributes")
+	print(status.DMG)
 	pass
