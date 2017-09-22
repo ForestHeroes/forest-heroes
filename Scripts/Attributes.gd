@@ -6,7 +6,3 @@ export(float) var DEF
 export(float) var ASPD
 export(float) var MSPD
 export(float) var ATKRANGE
-
-export(Array) var Spells
-
-export(Texture) var UnitImage
