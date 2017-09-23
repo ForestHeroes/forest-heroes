@@ -1,38 +1,28 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://Tilesets/res/Tiles_01.tres" type="TileSet" id=1]
+[ext_resource path="res://Prefabs/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Enemy ranged" parent="." instance=ExtResource( 1 )]
 
-[node name="TileMap" type="TileMap" parent="Node2D"]
+transform/pos = Vector2( 875.558, 449.104 )
 
-mode = 1
-tile_set = ExtResource( 1 )
-cell/size = Vector2( 94, 43 )
-cell/quadrant_size = 16
-cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-cell/half_offset = 2
-cell/tile_origin = 0
-cell/y_sort = true
-collision/use_kinematic = false
-collision/friction = 1.0
-collision/bounce = 0.0
-collision/layers = 1
-collision/mask = 1
-occluder/light_mask = 1
-tile_data = IntArray( -327674, 8, -327672, 8, -327670, 8, -327668, 8, -327666, 8, -327664, 8, -327662, 8, -196602, 8, -196600, 8, -196598, 8, -196596, 8, -196594, 8, -196592, 8, -196590, 8, -65530, 8, -65528, 8, -65526, 8, -65524, 8, -65522, 8, -65520, 8, -65518, 8, 65542, 8, 65544, 8, 65546, 8, 65548, 8, 65550, 8, 65552, 8, 65554, 8, 196614, 8, 196616, 8, 196618, 8, 196620, 8, 196622, 8, 196624, 8, 196626, 8, 327686, 8, 327688, 8, 327690, 8, 327692, 8, 327694, 8, 327696, 8, 327698, 8 )
+[node name="Attributes" parent="Enemy ranged"]
 
-[node name="Player" type="KinematicBody2D" parent="Node2D" instance=ExtResource( 2 )]
+ATKRANGE = 500.0
 
-transform/pos = Vector2( 470, 172 )
-input/pickable = false
-collision/layers = 1
-collision/mask = 1
-collision/margin = 0.08
-script/script = ExtResource( 3 )
+[node name="Enemy close" parent="." instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 139.729, 486.946 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 394.165, 140.851 )
+transform/scale = Vector2( 0.5, 0.5 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
 
 
+[editable path="Enemy ranged"]

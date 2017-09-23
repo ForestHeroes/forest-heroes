@@ -1,9 +1,8 @@
 extends KinematicBody2D
 
-const MAX_SPEED = 300.0
+onready var attributes = get_node("Attributes")
+
 const IDLE_SPEED = 10.0
-const ACCEL = 5.0
-const VSCALE = 0.5
 
 var current_anim = ""
 
@@ -12,7 +11,6 @@ var speed = Vector2()
 
 func _ready():
 	status = get_node("Attributes")
-	print(status.DMG)
 	set_fixed_process(true)
 	set_process_input(true)
 
@@ -26,12 +24,10 @@ func _fixed_process(delta):
 		dir += Vector2(-1, 0)
 	if (Input.is_action_pressed("ui_right")):
 		dir += Vector2(1, 0)
-	
-	if (dir != Vector2()):
-		dir = dir.normalized()
-	speed = speed.linear_interpolate(dir*MAX_SPEED, delta*ACCEL)
+		
+
+	speed = dir.normalized() * attributes.MSPD
 	var motion = speed*delta
-	motion.y *= VSCALE
 	motion = move(motion)
 	
 	if (is_colliding()):
@@ -60,5 +56,6 @@ func _fixed_process(delta):
 			next_anim = "top"
 	
 	if (next_anim != current_anim):
-		get_node("Anim").play(next_anim)
+		#get_node("Anim").play(next_anim)
 		current_anim = next_anim
+		
