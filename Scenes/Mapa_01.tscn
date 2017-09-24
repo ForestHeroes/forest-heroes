@@ -7,6 +7,7 @@
 
 [node name="Enemy ranged" parent="." instance=ExtResource( 1 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 875.558, 449.104 )
 
 [node name="Attributes" parent="Enemy ranged"]
